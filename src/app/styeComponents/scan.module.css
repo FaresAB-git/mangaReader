@@ -1,0 +1,57 @@
+.readerHeader{
+    margin-top:8%;
+    width: 100%;
+    height: 10%;
+    
+}
+
+.reader{
+    display: flex;
+    margin-left: 15%;
+    flex-direction: column;
+    width: 70%;
+}
+
+.chapterContainer{
+    display: flex;
+}
+
+.chapterBtnPrev{
+    text-align: center;
+    background-color: #6D6D6D;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    width: 7%;
+    margin-left:55%;
+    margin-top: 3%;
+    
+}
+
+.chapterBtnNext{
+    text-align: center;
+    background-color: #6D6D6D;
+    transition: all 0.2s ease-in-out;
+    border-radius: 10px;
+    width: 7%;
+    margin-left: 0.5%;
+    margin-top: 3%;
+    
+}
+
+.chapterBtnPrev:hover{
+    filter: brightness(50%);
+}
+
+.chapterBtnNext:hover{
+    filter: brightness(50%);
+}
+
+
+.selectChapter{
+    background-color: #6D6D6D;
+    border-radius: 10px;
+    width: 4%;
+    margin-left: 15%;
+    margin-top: 3%;
+
+}

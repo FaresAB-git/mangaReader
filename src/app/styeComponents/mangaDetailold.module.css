@@ -1,0 +1,69 @@
+.mangaInfoAndImgContainer{
+    position: relative;
+    display: flex;
+    border-radius: 10px;
+    background-color: #2E2E2E;
+    justify-content: flex-end;
+    width: 90%;
+    left: 5%;
+    top:15%;
+    max-height: 50%;
+    
+    
+}
+
+.mangaInfoContainer{
+    
+    margin-left: 5%;
+    text-align: center;
+    width: 30%;
+    
+}
+
+.genreTheme{
+    width: 20%;
+}
+.mangaDesc{
+    max-height: 80%;
+    overflow: auto;
+}
+
+.mangaTitle{
+    margin-bottom: 5%;
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.mangaImg{
+    margin-top: 2%;
+    width: 15%;
+    height:22%;
+}
+
+.chapterContainer{
+    margin-top:6%;
+    margin-bottom: 5%;
+    margin-left: 50%;
+    left: 15%;
+}
+
+.chapterLabel{
+    padding: 5%;
+}
+
+.chapterList{
+    padding: 5%;
+    background-color: #2E2E2E;
+    border-radius: 10px;
+    max-height: 500px;
+    max-width: 80%;
+    overflow: auto;
+}
+
+.chapterLink:hover{
+    color: lightgray;
+}
+
+.footer{
+    height: 5%;
+}

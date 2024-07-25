@@ -1,0 +1,38 @@
+.sliderContainer{
+    width: 90%;
+    margin-left: 5%;
+    height: 20%;
+    background-color: #1f1d1e;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.mangaItem{
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 100%;
+    
+}
+
+.coverImage{
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 90%;
+    height: 550px;
+    transition: 0.2s;
+}
+    
+.coverImage:hover {
+    opacity: 0.5;
+  }  
+
+
+.popularTitleTitle{
+    text-align: center;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.footerDiv{
+    height: 100px;
+}

@@ -1,0 +1,32 @@
+
+.mangaTitle{
+    margin-top: 2%;
+}
+
+.imgScan{
+    width: 100px;
+    height: 150px;
+    border-radius: 5px;
+    transition: transform .2s; /* Animation */
+}
+
+.imgScan:hover{
+    width: 150px;
+    height: 200px;
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.mangaTitle{
+    margin-top: 5px;
+    width: 150px;
+    display: block;
+    overflow-wrap: normal;
+}
+
+.scanImgAndTitle{
+    max-width: 20%;
+    max-height: 20%;
+}
+
+
+

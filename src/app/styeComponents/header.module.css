@@ -1,0 +1,14 @@
+.headerContainer{
+    text-align: center;
+    height: 7%;
+    background-color: #6D6D6D;
+}
+
+.appTitle{
+    position: relative;
+    color: aliceblue;
+    top:32%;
+    font-size: x-large;
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+}
