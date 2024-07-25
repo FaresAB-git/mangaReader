@@ -6,7 +6,7 @@ export default function Header(){
         <>
         <div className={styles.headerContainer}>
 
-            <h1 className={styles.appTitle}> <Link href='/'> Manga Scan Perso </Link>  </h1>
+            <h1 className={styles.appTitle}> <Link href='/'> sah je sais pas comment l'appeler </Link>  </h1>
         </div>
         </>
     )
