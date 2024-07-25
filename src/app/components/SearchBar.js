@@ -45,7 +45,7 @@ export default function SearchBar() {
                 {results.map((manga) => (
                     <ScanIcon
                         key={manga.id}
-                        imageSrc={manga.imageUrl}
+                        imageSrc={`/api/proxyImage?url=${encodeURIComponent(manga.imageUrl)}`}
                         title={manga.title}
                         id={manga.id}
                     />

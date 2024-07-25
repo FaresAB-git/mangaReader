@@ -53,7 +53,8 @@ export default function Carousel({ popularManga }) {
                     <div key={manga.id} className={styles.mangaItem}>
                         <Link href={`/manga/${manga.id}?imageSrc=${encodeURIComponent(coverUrls[index])}&mangaTitle=${encodeURIComponent(getTitle(manga))}`}>
                             <img 
-                                src={coverUrls[index]} 
+                                src={`/api/proxyImage?url=${encodeURIComponent(coverUrls[index])}`} 
+                                
                                 alt={getTitle(manga)} 
                                 className={styles.coverImage} 
                             />
