@@ -34,8 +34,10 @@ export default function ScanPage() {
             }
         }
     }, []);
-
+    console.log(scan) //(chapterID)
     const { scans, error } = useMangaScans(scan);
+    
+    
     const { baseUrl, chapter } = scans;
     const { hash: chapterHash, data: pages } = chapter;
 

@@ -6,7 +6,7 @@ import usePopularManga from '../app/hooks/usePopularManga';
 import { useEffect } from 'react';
 
 export default function Home() {
-  const { mangas: popularManga, error } = usePopularManga('https://api.mangadex.org/manga?order[followedCount]=desc&limit=10');
+  const { mangas: popularManga, error } = usePopularManga('/api/popularManga');
 
   // Log l'état actuel des mangas et des erreurs pour le débogage
   useEffect(() => {

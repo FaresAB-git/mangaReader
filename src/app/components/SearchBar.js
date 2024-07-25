@@ -1,4 +1,5 @@
-'use client'
+// components/SearchBar.js
+'use client';
 import styles from '../styeComponents/searchBar.module.css';
 import { useState } from 'react';
 import ScanIcon from './ScanIcon';
@@ -13,37 +14,14 @@ export default function SearchBar() {
 
     async function rechercher() {
         try {
-            const response = await fetch(`https://api.mangadex.org/manga?title=${searchValue}&limit=30`);
+            const response = await fetch(`/api/search?title=${encodeURIComponent(searchValue)}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
             const data = await response.json();
-
-            const mangaResults = await Promise.all(data.data
-                .filter(manga => !manga.attributes.tags.some(tag => tag.attributes.name.en === 'Doujinshi' || tag.attributes.name.en === 'Fan-Made'))
-                .map(async (manga) => {
-                    const coverArt = manga.relationships.find(rel => rel.type === 'cover_art');
-
-                    if (coverArt) {
-                        const coverResponse = await fetch(`https://api.mangadex.org/cover/${coverArt.id}`);
-                        const coverData = await coverResponse.json();
-                        const coverFileName = coverData.data.attributes.fileName;
-                        const imageUrl = `https://uploads.mangadex.org/covers/${manga.id}/${coverFileName}`;
-                        return {
-                            id: manga.id,
-                            title: manga.attributes.title.en || manga.attributes.title['ja'],
-                            imageUrl
-                        };
-                    }
-
-                    return {
-                        id: manga.id,
-                        title: manga.attributes.title.en || manga.attributes.title['ja'],
-                        imageUrl: '' // default or placeholder image if no cover art
-                    };
-                })
-            );
-
-            setResults(mangaResults);
+            setResults(data);
         } catch (error) {
-            console.error("Erreur lors de la recherche de mangas:", error);
+            console.error('Erreur lors de la recherche de mangas:', error);
         }
     }
 

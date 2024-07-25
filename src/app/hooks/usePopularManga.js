@@ -7,26 +7,17 @@ const usePopularManga = (url) => {
   useEffect(() => {
     const fetchPopularManga = async () => {
       try {
-        const response = await fetch(url);
+        const response = await fetch(url, {
+          method: 'GET', // Ajout explicite de la méthode GET
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const data = await response.json();
         console.log("Data from API:", data); // Ajout de ce log pour vérifier les données
-
-        // Vérifier les chapitres disponibles pour chaque manga
-        const mangaWithChapters = await Promise.all(
-          data.data.map(async (manga) => {
-            const feedResponse = await fetch(`https://api.mangadex.org/manga/${manga.id}/feed?translatedLanguage[]=en`);
-            const feedData = await feedResponse.json();
-            if (feedData.data.length > 0) {
-              return manga;
-            }
-            return null;
-          })
-        );
-
-        // Filtrer les mangas null (ceux sans chapitres disponibles)
-        const filteredManga = mangaWithChapters.filter(manga => manga !== null);
-
-        setMangas(filteredManga);
+        setMangas(data.data);
       } catch (error) {
         setError(error);
       }

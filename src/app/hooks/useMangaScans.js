@@ -10,9 +10,12 @@ const useMangaScans = (chapterId) => {
 
         const fetchScans = async () => {
             try {
-                const response = await fetch(`https://api.mangadex.org/at-home/server/${chapterId}`);
+                const response = await fetch(`/api/mangaScans?chapterId=${chapterId}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
                 const data = await response.json();
-                console.log(data)
+                console.log(data);
                 setScans({
                     baseUrl: data.baseUrl,
                     chapter: {

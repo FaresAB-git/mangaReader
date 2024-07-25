@@ -12,8 +12,10 @@ export default function MangaDetails() {
     const params = useParams();
     const { id } = params;
 
-    const mangaData = useMangaDetail(id);
-    const chapterList = useMangaChapters(id);
+    const mangaData = useMangaDetail(id).mangaData;
+    
+    const chapterList = useMangaChapters(id).chapterList;
+    
 
     useEffect(() => {
         if (chapterList) {
@@ -32,6 +34,7 @@ export default function MangaDetails() {
     return (
         <>
             <Header />
+            
             <div className={styles.mangaInfoAndImgContainer}>
                 {imageSrc && (
                     <img src={imageSrc} alt={mangaTitle} className={styles.mangaImg} />
@@ -71,6 +74,7 @@ export default function MangaDetails() {
             )}
             
             <div className={styles.footer}></div>
+            
         </>
     );
 }

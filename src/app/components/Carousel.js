@@ -51,7 +51,6 @@ export default function Carousel({ popularManga }) {
                 <Slider {...settings} className={styles.sliderPopular}>
                 {popularManga.map((manga, index) => (
                     <div key={manga.id} className={styles.mangaItem}>
-                        
                         <Link href={`/manga/${manga.id}?imageSrc=${encodeURIComponent(coverUrls[index])}&mangaTitle=${encodeURIComponent(getTitle(manga))}`}>
                             <img 
                                 src={coverUrls[index]} 

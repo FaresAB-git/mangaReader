@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-// Fonction pour obtenir le nom de fichier de la couverture
+// Fonction pour obtenir les informations de couverture via l'API interne
 const fetchCoverFileName = async (coverId) => {
     try {
-        const response = await fetch(`https://api.mangadex.org/cover/${coverId}`);
+        const response = await fetch(`/api/covers?coverId=${coverId}`);
         const coverData = await response.json();
-        return coverData.data.attributes.fileName;
+        return coverData.fileName;
     } catch (error) {
         console.error('Failed to fetch cover file name:', error);
         return null;
