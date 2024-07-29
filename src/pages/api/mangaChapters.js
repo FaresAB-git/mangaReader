@@ -1,4 +1,3 @@
-// pages/api/mangaChapters.js
 export default async function handler(req, res) {
     const { id } = req.query;
     const limit = 100; // Nombre maximum de chapitres par requête
@@ -38,7 +37,21 @@ export default async function handler(req, res) {
             return chapterB - chapterA;
         });
 
-        res.status(200).json({ data: allChapters });
+        // Supprimer les doublons
+        const uniqueChapters = [];
+        const seenChapters = new Set();
+
+        allChapters.forEach(chapter => {
+            const chapterNumber = chapter.attributes.chapter;
+            if (!seenChapters.has(chapterNumber)) {
+                uniqueChapters.push(chapter);
+                seenChapters.add(chapterNumber);
+            }
+        });
+
+        console.log(uniqueChapters);
+
+        res.status(200).json({ data: uniqueChapters });
     } catch (error) {
         console.error('Failed to fetch manga chapters:', error);
         res.status(500).json({ error: 'Failed to fetch manga chapters' });

@@ -14,13 +14,10 @@ export default async function handler(req, res) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        // Afficher les en-têtes de la réponse
-        response.headers.forEach((value, name) => {
-            console.log(`${name}: ${value}`);
-        });
 
         const contentType = response.headers.get('content-type') || 'application/octet-stream';
         const arrayBuffer = await response.arrayBuffer(); // Utiliser arrayBuffer() pour obtenir les données sous forme de tampon
+        console.log(arrayBuffer)
 
         const buffer = Buffer.from(arrayBuffer); // Convertir arrayBuffer en Buffer
 
