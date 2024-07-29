@@ -5,6 +5,11 @@
     
 }
 
+.readerFooter{
+    width: 100%;
+    height: 10%;
+}
+
 .reader{
     display: flex;
     margin-left: 15%;

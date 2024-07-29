@@ -75,7 +75,6 @@ export default function ScanPage() {
     return (
         <>
             <Header />
-            <h1>Chapter number: {chapterNumber}</h1>
             <div className={styles.readerHeader}>
                 {chapterList && (
                     <div className={styles.chapterContainer}>
@@ -110,6 +109,27 @@ export default function ScanPage() {
             ) : (
                 <h2 className={styles.pageUnavailable}>Pages unavailable</h2>
             )}
+            <div className={styles.readerFooter}>
+                {chapterList && (
+                    <div className={styles.chapterContainer}>
+                        <select
+                            className={styles.selectChapter}
+                            value={selectedChapter}
+                            onChange={handleChange}
+                        >
+                            <option value="" disabled>Select a chapter</option>
+                            {chapterList.map((chapter, index) => (
+                                <option key={`${chapter.id}-${index}`} value={chapter.id}>
+                                    {chapter.attributes.chapter}
+                                </option>
+                            ))}
+                        </select>
+                        <a className={styles.chapterBtnPrev} onClick={handlePrevious}> précédent </a>
+                        <a className={styles.chapterBtnNext} onClick={handleNext}> suivant </a>
+                    </div>
+                )}
+            </div>
+            
         </>
     );
 }
