@@ -34,9 +34,7 @@ export default function MangaSearched() {
     return (
         <>
             <Header />
-            <Suspense>
-                <SearchBar />
-            </Suspense>
+            <SearchBar />
             <div className={styles.scanIconContainer}>
                 {/* Votre contenu ici */}
             </div>
