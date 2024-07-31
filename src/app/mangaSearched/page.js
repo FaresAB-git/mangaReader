@@ -21,15 +21,11 @@ export default function MangaSearched() {
     }, [query]);
 
     return (
-        
-            <Suspense>
-                <Header/>
-                <SearchBar/>
-                <div className={styles.scanIconContainer}></div>
-                <Gallery mangaList={searchResults}/>
-            </Suspense>
-            
-
-        
+        <Suspense fallback={<div>Loading...</div>}>
+            <Header/>
+            <SearchBar/>
+            <div className={styles.scanIconContainer}></div>
+            <Gallery mangaList={searchResults}/>
+        </Suspense>
     );
 }
