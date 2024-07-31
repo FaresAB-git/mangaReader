@@ -4,7 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Carousel from "./components/Carousel";
 import Gallery from "./components/Gallery"
 import usePopularManga from '../app/hooks/usePopularManga';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import useLastUpdatedManga from "./hooks/useLastUpdatedManga";
 
 export default function Home() {
@@ -29,11 +29,11 @@ export default function Home() {
   }
 
   return (
-    <>
+    <Suspense>
       <Header />
       <SearchBar/>
       <Carousel popularManga={popularManga} />
       <Gallery mangaList={lastUpdatedManga}/>
-    </>
+    </Suspense>
   );
 }
