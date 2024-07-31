@@ -18,7 +18,7 @@ export default function Gallery({ mangaList }) {
                         <div key={index} className={styles.imgandTitleContainer}> 
                             
                             <div className={styles.imgContainer}>
-                                <img className={styles.imgGallery} src={coverUrls[index]} />
+                                <img className={styles.imgGallery} src={`/api/proxyImage?url=${encodeURIComponent(coverUrls[index])}`} />
                             </div>
                             
                             <div className={styles.titleContainer}>
