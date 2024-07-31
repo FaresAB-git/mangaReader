@@ -1,6 +1,7 @@
+// app/mangaSearched/page.js
 'use client';
-import { useSearchParams } from 'next/navigation';
-import { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import SearchBar from '../components/SearchBar';
 import Gallery from '../components/Gallery';
@@ -18,14 +19,14 @@ export default function MangaSearched() {
                 setSearchResults(JSON.parse(results));
             }
         }
-    }, [query]);
+    }, [query]); // Surveillez les changements de query
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
-            <Header/>
-            <SearchBar/>
+        <>
+            <Header />
+            <SearchBar />
             <div className={styles.scanIconContainer}></div>
-            <Gallery mangaList={searchResults}/>
-        </Suspense>
+            <Gallery mangaList={searchResults} />
+        </>
     );
 }
