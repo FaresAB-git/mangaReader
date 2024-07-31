@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://api.mangadex.org/manga?order[followedCount]=desc&limit=10');
+    const response = await fetch('https://api.mangadex.org/manga?order[followedCount]=desc&limit=15');
     const data = await response.json();
 
     // Vérifier les chapitres disponibles pour chaque manga

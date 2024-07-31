@@ -1,29 +1,32 @@
-// components/SearchBar.js
 'use client';
 import styles from '../styeComponents/searchBar.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Utilisez le hook de next/navigation
 import ScanIcon from './ScanIcon';
 
 export default function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
-    const [results, setResults] = useState([]);
+    const router = useRouter();
 
     function searching(value) {
         setSearchValue(value);
     }
 
-    async function rechercher() {
+    const rechercher = async () => {
         try {
-            const response = await fetch(`/api/search?title=${encodeURIComponent(searchValue)}`);
+            const response = await fetch(`/api/search2?title=${encodeURIComponent(searchValue)}`);
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
             const data = await response.json();
-            setResults(data);
+            // Stocker les résultats de la recherche dans le local storage
+            localStorage.setItem('searchResults', JSON.stringify(data.data));
+            // Rediriger vers la page de résultats avec le paramètre de recherche
+            router.push(`/mangaSearched?query=${encodeURIComponent(searchValue)}`);
         } catch (error) {
             console.error('Erreur lors de la recherche de mangas:', error);
         }
-    }
+    };
 
     return (
         <>
@@ -39,17 +42,6 @@ export default function SearchBar() {
                     <input id="SearchBarInput" onChange={(e) => searching(e.target.value)} type="search" name="q" className="py-2 text-sm text-gray-600 bg-gray-200 rounded-md pl-10 focus:outline-none focus:bg-gray-200 focus:text-gray-600 w-full" placeholder="Search..." autoComplete="off" />
                     <button className={styles.btnSearch} onClick={rechercher}> search </button>
                 </div>
-            </div>
-
-            <div className={styles.scanIconContainer}>
-                {results.map((manga) => (
-                    <ScanIcon
-                        key={manga.id}
-                        imageSrc={`/api/proxyImage?url=${encodeURIComponent(manga.imageUrl)}`}
-                        title={manga.title}
-                        id={manga.id}
-                    />
-                ))}
             </div>
         </>
     );

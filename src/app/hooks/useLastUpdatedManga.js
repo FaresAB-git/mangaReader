@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
-const usePopularManga = (url) => {
+const useLastUpdatedManga = (url) => {
   const [mangas, setMangas] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPopularManga = async () => {
+    const fetchLastUpdated = async () => {
       try {
         const response = await fetch(url, {
           method: 'GET', // Ajout explicite de la méthode GET
@@ -23,12 +23,12 @@ const usePopularManga = (url) => {
       }
     };
 
-    fetchPopularManga();
+    fetchLastUpdated();
   }, [url]);
 
-  //console.log("Returning from hook: ", { mangas, error }); // Log added here
+  console.log("Returning from useLastUpdatedManga: ", { mangas, error }); // Log added here
 
   return { mangas, error };
 };
 
-export default usePopularManga;
+export default useLastUpdatedManga;

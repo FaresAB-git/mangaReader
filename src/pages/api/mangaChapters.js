@@ -49,7 +49,7 @@ export default async function handler(req, res) {
             }
         });
 
-        console.log(uniqueChapters);
+        //console.log(uniqueChapters);
 
         res.status(200).json({ data: uniqueChapters });
     } catch (error) {

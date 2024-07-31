@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
         const contentType = response.headers.get('content-type') || 'application/octet-stream';
         const arrayBuffer = await response.arrayBuffer(); // Utiliser arrayBuffer() pour obtenir les données sous forme de tampon
-        console.log(arrayBuffer)
+        //console.log(arrayBuffer)
 
         const buffer = Buffer.from(arrayBuffer); // Convertir arrayBuffer en Buffer
 

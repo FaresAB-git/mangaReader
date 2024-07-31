@@ -32,8 +32,8 @@ export default function Carousel({ popularManga }) {
 
     // Utiliser le hook personnalisé pour obtenir les URLs des couvertures
     const { coverUrls, loading } = useCoverUrls(popularManga);
-    console.log('Cover URLs:', coverUrls);
-    console.log('Loading:', loading);
+    //console.log('Cover URLs:', coverUrls);
+    //console.log('Loading:', loading);
 
     // Vérifiez si popularManga est bien un tableau
     if (loading) {
