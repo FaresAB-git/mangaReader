@@ -102,7 +102,7 @@ export default function ScanPage() {
                             key={index}
                             src={`${baseUrl}/data/${chapterHash}/${page}`}
                             alt={`Page ${index + 1}`}
-                            style={{ marginBottom: '10px' }}
+                            className={styles.scanImg}
                         />
                     ))}
                 </div>

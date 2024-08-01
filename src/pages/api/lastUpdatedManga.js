@@ -14,7 +14,7 @@ export default async function handler(req, res) {
     }
   
     try {
-      const response = await fetch('https://api.mangadex.org/manga?limit=20&contentRating[]=safe&contentRating[]=suggestive&order[latestUploadedChapter]=desc&includes[]=author&includes[]=artist&includes[]=cover_art&includes[]=chapter&includes[]=manga&availableTranslatedLanguage[]=en');
+      const response = await fetch('https://api.mangadex.org/manga?limit=20&contentRating[]=safe&order[latestUploadedChapter]=desc&includes[]=author&includes[]=artist&includes[]=cover_art&includes[]=chapter&includes[]=manga&availableTranslatedLanguage[]=en');
       const data = await response.json();
   
       // Vérifier les chapitres disponibles pour chaque manga
