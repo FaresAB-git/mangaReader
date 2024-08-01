@@ -100,9 +100,10 @@ export default function ScanPage() {
                     {pages.map((page, index) => (
                         <img
                             key={index}
-                            src={`${baseUrl}/data/${chapterHash}/${page}`}
+                            
                             alt={`Page ${index + 1}`}
                             className={styles.scanImg}
+                            src={`/api/proxyImage?url=${baseUrl}/data/${chapterHash}/${page}`}
                         />
                     ))}
                 </div>
