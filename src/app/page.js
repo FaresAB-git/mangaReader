@@ -33,6 +33,7 @@ export default function Home() {
       <Header />
       <SearchBar/>
       <Carousel popularManga={popularManga} />
+      <h1 style={{textAlign: "center"}}> Last updated manga </h1>
       <Gallery mangaList={lastUpdatedManga}/>
     </>
   );
