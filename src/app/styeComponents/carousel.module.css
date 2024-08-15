@@ -10,15 +10,14 @@
 }
 
 .mangaItem {
-    margin-left: 2%;
-    margin-right: 2%;
+    
     height: 100%;
 }
 
 .coverImage {
     margin-left: 0; /* Supprime la marge des images pour éviter le débordement */
     margin-right: 0;
-    width: 100%; /* Utilise toute la largeur disponible */
+    width: 80%; /* Utilise toute la largeur disponible */
     height: 550px;
     transition: 0.2s;
 }
