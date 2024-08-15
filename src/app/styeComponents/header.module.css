@@ -12,3 +12,13 @@
     font-weight: 700;
     font-family: 'Roboto', sans-serif;
 }
+
+
+@media (max-width: 480px) {
+    .appTitle{
+        
+        font-size:medium;
+        font-weight: 400;
+        
+    }
+}

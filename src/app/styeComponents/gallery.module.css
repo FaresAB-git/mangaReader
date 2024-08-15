@@ -1,27 +1,27 @@
+/* Styles de base pour les grands écrans */
 .grid {
     width: 80%;
-    height: auto; /* Vous pouvez aussi définir une hauteur fixe si nécessaire */
     margin-left: 10%;
     display: grid;
     grid-row-gap: 20px; /* Espacement entre les lignes */
     grid-column-gap: 10px; /* Espacement entre les colonnes */
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 20%; /* Hauteur fixe pour chaque ligne */
+    grid-template-columns: repeat(4, 1fr); /* Quatre colonnes par défaut */
+    grid-auto-rows: auto; /* Hauteur automatique pour chaque ligne */
 }
 
 .mangaContainer {
     text-align: center;
     width: 100%;
     height: 100%;
-    position: relative; /* Ajouté pour que l'élément enfant soit positionné correctement */
+    position: relative;
 }
 
 .imgandTitleContainer {
     margin-top: 10%;
-    height: 100%;
+    height: 100%; /* Assure que l'image et le titre prennent toute la hauteur */
     width: 100%;
-    position: relative; /* Ajouté pour que le pseudo-élément soit positionné correctement */
-    overflow: hidden; /* Assure que le shine ne dépasse pas le conteneur */
+    position: relative;
+    overflow: hidden; /* Assure que l'animation shine ne dépasse pas le conteneur */
     transition: 0.2s;
 }
 
@@ -30,26 +30,22 @@
 }
 
 .imgContainer {
-    min-height: 350px;
-    height: 75%;
-    width: 70%;
-    margin-left: 15%;
-    position: relative; /* Ajouté pour que le pseudo-élément ::before soit positionné correctement */
-    overflow: hidden; /* Assure que l'animation shine ne dépasse pas le conteneur */
+    aspect-ratio: 3/4; /* Maintient un ratio fixe pour les images */
+    width: 100%; /* Utilise toute la largeur disponible */
+    position: relative;
+    overflow: hidden;
 }
 
 .imgGallery {
     border-radius: 10px;
-    height: 100%;
     width: 100%;
-    object-fit: cover;
+    height: 100%; /* Remplit le conteneur sans déformation */
+    object-fit: cover; /* Maintient le ratio de l'image et remplit le conteneur */
 }
 
 .titleContainer {
     margin-top: 2%;
-    margin-left: 10%;
-    height: 10%;
-    width: 80%;
+    width: 100%; /* Utilise toute la largeur disponible */
 }
 
 /* Styles pour l'animation shine */
@@ -74,5 +70,34 @@
 @keyframes shine {
     100% {
         left: 125%;
+    }
+}
+
+/* Styles spécifiques pour les écrans jusqu'à 1024px */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr); /* Trois colonnes pour les écrans moyens */
+    }
+}
+
+/* Styles spécifiques pour les écrans jusqu'à 768px */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes pour les écrans plus petits */
+    }
+
+    .imgContainer {
+        aspect-ratio: 3/4; /* Maintient le même ratio */
+    }
+}
+
+/* Styles spécifiques pour les écrans jusqu'à 480px */
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr); /* Deux colonnes même pour les très petits écrans */
+    }
+
+    .imgContainer {
+        aspect-ratio: 3/4; /* Maintient le même ratio */
     }
 }
